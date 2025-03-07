@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2373021 Elroy Matthew Wiyanto</title>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center;">
+    <form>
+        <table width="500px" cellpadding="8" style="border: 2px solid black">
+            <tr bgcolor="gray">
+                <td colspan="3" align="center">
+                    <h2>Edit Profile</h2>
+                </td>
+            </tr>
+
+            <tr>
+                <td rowspan="5" style="text-align: center; padding: 10px; border: 2px solid black">
+                    <img src="profile.jpg" width="120" height="180" alt="Profile Picture"><br>
+                    <button type="file" name="profile_picture">Upload</button>
+                </td>
+                <td>Name</td>
+                <td>Elroy Matthew Wiyanto</td>
+            </tr>
+            <tr>
+                <td>Position</td>
+                <td> 
+                    <select name="position">    
+                        <optgroup label="Programmer">
+                            <option>Senior Programmer</option>
+                            <option>Junior Programmer</option>
+                        </optgroup>
+                        <optgroup label="System Analyst">
+                            <option>Senior Analyst</option>
+                            <option>Junior Analyst</option>
+                        </optgroup>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="text" name="password" value="admin" required></td>
+            </tr>
+            <tr>
+                <td>Confirm Password</td>
+                <td><input type="password" name="confirm_password" value="*****" required></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right">
+                    <input type="reset" value="Reset">
+                    <button type="button" onclick="alert('Profile Updated!')">Update</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
