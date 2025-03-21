@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2373021 Elroy Matthew Wiyanto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .navbar {
+            list-style-type: none;
+            text-align: center;
+            background-color: white;
+        }
+
+        .navbar > li {
+            display: inline-block;
+            position: relative;
+            border: 2px dotted grey;
+            border-width: 1px;
+            margin-right: 3px;
+            padding: 10px 20px;
+        }
+
+        .navbar li a {
+            text-decoration: none;
+            color: black;
+            display: block;
+        }
+
+        .navbar li:hover {
+            background-color: black;
+        }
+
+        .navbar li:hover > a {
+            color: white;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            width: 100%;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .submenu li {
+            border: 1px dotted grey;
+            padding: 10px;
+        }
+
+        .submenu li:hover {
+            background-color: black;
+        }
+
+        .submenu li:hover a {
+            color: white;
+        }
+
+        .navbar li:hover .submenu {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <ul class="navbar">
+        <li><a href="#">Home</a></li>
+        <li>
+            <a href="#">News</a>
+            <ul class="submenu">
+                <li><a href="#">Sports</a></li>
+                <li><a href="#">Music</a></li>
+                <li><a href="#">Movie</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+
+</body>
+</html>
