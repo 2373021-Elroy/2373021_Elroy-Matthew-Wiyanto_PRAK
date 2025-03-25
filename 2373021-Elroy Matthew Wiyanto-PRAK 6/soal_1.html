@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2373021 Elroy Matthew Wiyanto</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 50px;
+            font-size: 24px;
+        }
+
+        .container {
+            max-width: 500px;
+            border: 2px solid #000;
+            padding: 20px;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .input-group label {
+            flex: 1;
+            text-align: left;
+            font-size: 22px;
+        }
+
+        .input-group input {
+            flex: 2;
+            padding: 5px;
+            font-size: 22px;
+            border: 1px solid black;
+            text-align: left;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 5px 15px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 15px;
+            font-size: 50px;
+        }
+
+        td {
+            width: 70px;
+            height: 60px;
+            text-align: center;
+            border: 2px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="input-group">
+            <label for="angka1"><b>Angka Pertama   :</b></label>
+            <input type="text" id="angka1">
+        </div>
+
+        <div class="input-group">
+            <label for="angka2"><b>Angka Kedua     &nbsp;&nbsp;&nbsp;:</b></label>
+            <input type="text" id="angka2">
+        </div>
+
+        <button onclick="hitung()">Count</button>
+
+        <table>
+            <tr>
+                <td id="sum1"></td>
+                <td>+</td>
+                <td id="sum2"></td>
+                <td>=</td>
+                <td id="sumResult"></td>
+            </tr>
+            <tr>
+                <td id="diff1"></td>
+                <td>-</td>
+                <td id="diff2"></td>
+                <td>=</td>
+                <td id="diffResult"></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function hitung() {
+            let angka1 = document.getElementById("angka1").value;
+            let angka2 = document.getElementById("angka2").value;
+
+            if (isNaN(angka1) || angka1 === "") {
+                alert("Angka pertama harus berupa angka.");
+                return;
+            }
+            if (isNaN(angka2) || angka2 === "") {
+                alert("Angka kedua harus berupa angka.");
+                return;
+            }
+
+            let num1 = parseInt(angka1);
+            let num2 = parseInt(angka2);
+
+            document.getElementById("sum1").innerHTML = num1;
+            document.getElementById("sum2").innerHTML = num2;
+            document.getElementById("sumResult").innerHTML = num1 + num2;
+
+            document.getElementById("diff1").innerHTML = num1;
+            document.getElementById("diff2").innerHTML = num2;
+            document.getElementById("diffResult").innerHTML = num1 - num2;
+        }
+    </script>
+</body>
+
+</html>

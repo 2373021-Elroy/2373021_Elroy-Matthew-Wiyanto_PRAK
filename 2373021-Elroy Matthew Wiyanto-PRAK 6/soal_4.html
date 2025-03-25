@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2373021 Elroy Matthew Wiyanto</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 350px;
+            padding: 15px;
+            border: 2px solid gray;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+            background: #fff;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        label {
+            font-weight: bold;
+            color: blue;
+            width: 80px;
+            text-align: left;
+        }
+
+        input {
+            flex: 1;
+            padding: 5px;
+            border: 1px solid black;
+            font-size: 16px;
+            text-align: left;
+        }
+
+        select, button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 5px 15px;
+            cursor: pointer;
+            font-size: 14px;
+            color: blue;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <label for="input"><b>Input :</b></label>
+            <input type="text" id="input" placeholder="Masukkan angka">
+        </div>
+
+        <div class="row">
+            <label for="output"><b>Output :</b></label>
+            <input type="text" id="output" readonly>
+        </div>
+
+        <select id="konversi">
+            <option value="decimal-biner">decimal-biner</option>
+            <option value="biner-decimal">biner-decimal</option>
+        </select>
+
+        <div class="button-container">
+            <button id="proses" onclick="konversiBilangan()"><b>PROSES</b></button>
+            <button id="reset" onclick="resetForm()"><b>RESET</b></button>
+        </div>
+    </div>
+
+    <script>
+        function decimalToBinary(decimal) {
+            let binary = "";
+            let num = decimal;
+
+            while (num > 0) {
+                binary = (num % 2) + binary;
+                num = Math.floor(num / 2);
+            }
+
+            return binary.padStart(8, '0');
+        }
+
+        function binaryToDecimal(binary) {
+            let decimal = 0;
+            let power = binary.length - 1;
+
+            for (let i = 0; i < binary.length; i++) {
+                decimal += parseInt(binary[i]) * Math.pow(2, power);
+                power--;
+            }
+
+            return decimal;
+        }
+
+        function konversiBilangan() {
+            let inputVal = document.getElementById("input").value.trim();
+            let konversi = document.getElementById("konversi").value;
+            let output = document.getElementById("output");
+
+            if (konversi === "decimal-biner") {
+                if (!/^\d+$/.test(inputVal) || inputVal < 0 || inputVal > 255) {
+                    alert("Masukkan angka 0 - 255 untuk konversi Decimal ke Biner!");
+                    return;
+                }
+                output.value = decimalToBinary(parseInt(inputVal));
+            }
+            else if (konversi === "biner-decimal") {
+                if (!/^[01]{8}$/.test(inputVal)) {
+                    alert("Masukkan angka biner 8 digit (0 atau 1)!");
+                    return;
+                }
+                output.value = binaryToDecimal(inputVal);
+            }
+        }
+
+        function resetForm() {
+            document.getElementById("input").value = "";
+            document.getElementById("output").value = "";
+        }
+    </script>
+
+</body>
+
+</html>

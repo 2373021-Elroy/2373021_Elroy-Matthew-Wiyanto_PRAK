@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2373021 Elroy Matthew Wiyanto</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tabel-container"></div>
+    <script>
+        let angka;
+
+        do {
+            angka = prompt("Masukkan angka:");
+            if (angka === null) {
+                alert("Input dibatalkan.");
+                break;
+            }
+        } while (isNaN(angka) || angka.trim() === "");
+
+        if (angka !== null) {
+            angka = parseInt(angka);
+            let hasil = "";
+
+            for (let i = 1; i <= angka; i++) {
+                hasil += `${i} x ${angka} = ${i * angka}\n`;
+            }
+
+            alert(hasil);
+
+            let tableHTML = "<table>";
+            for (let i = 1; i <= angka; i++) {
+                tableHTML += `<tr>
+                                <td>${i}</td>
+                                <td>x</td>
+                                <td>${angka}</td>
+                                <td>=</td>
+                                <td>${i * angka}</td>
+                              </tr>`;
+            }
+            tableHTML += "</table>";
+
+            document.getElementById("tabel-container").innerHTML = tableHTML;
+        }
+    </script>
+</body>
+
+</html>
