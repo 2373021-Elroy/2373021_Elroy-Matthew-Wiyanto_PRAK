@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>2373021 Elroy Matthew Wiyanto</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 400px;
+            box-shadow: 3px 3px 10px #aaa;
+            font-family: 'Times New Roman', Times, serif;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid white;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #9dbfae;
+        }
+
+        .c1 {
+            background-color: #b0c4de;
+        }
+
+        .c2 {
+            background-color: #f4caaa;
+        }
+
+        .c3 {
+            background-color: #ccffaa;
+        }
+
+        .default-row:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table>
+        <tr>
+            <th>Position</th>
+            <th>Programming Language</th>
+            <th>Ratings</th>
+        </tr>
+        <tr class="default-row c1" onmouseover="highlightRow(this)" onmouseout="unhighlightRow(this)"
+            onclick="makeGreen(this)">
+            <td>1</td>
+            <td>C</td>
+            <td>18.058%</td>
+        </tr>
+        <tr class="default-row c2" onmouseover="highlightRow(this)" onmouseout="unhighlightRow(this)"
+            onclick="makeGreen(this)">
+            <td>2</td>
+            <td>Java</td>
+            <td>18.051%</td>
+        </tr>
+        <tr class="default-row c1" onmouseover="highlightRow(this)" onmouseout="unhighlightRow(this)"
+            onclick="makeGreen(this)">
+            <td>3</td>
+            <td>C++</td>
+            <td>9.707%</td>
+        </tr>
+        <tr class="default-row c2" onmouseover="highlightRow(this)" onmouseout="unhighlightRow(this)"
+            onclick="makeGreen(this)">
+            <td>4</td>
+            <td>PHP</td>
+            <td>9.662%</td>
+        </tr>
+        <tr class="default-row c1" onmouseover="highlightRow(this)" onmouseout="unhighlightRow(this)"
+            onclick="makeGreen(this)">
+            <td>5</td>
+            <td>(Visual) Basic</td>
+            <td>6.392%</td>
+        </tr>
+    </table>
+    <script>
+        function highlightRow(row) {
+            row.dataset.originalClass = row.className;
+            row.className = "c3";
+        }
+
+        function unhighlightRow(row) {
+            if (!row.dataset.clicked) {
+                row.className = row.dataset.originalClass;
+            }
+        }
+
+        function makeGreen(row) {
+            row.className = "c3";
+            row.dataset.clicked = true;
+        }
+    </script>
+
+</body>
+
+</html>
