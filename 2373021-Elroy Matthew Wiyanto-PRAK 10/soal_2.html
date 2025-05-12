@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>2373021 Elroy Matthew Wiyanto</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 30px;
+        }
+
+        #wrapper {
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 5px #999;
+            padding: 10px;
+            width: 300px;
+        }
+
+        input[type="text"] {
+            width: 150px;
+        }
+
+        .name-list {
+            margin-top: 10px;
+        }
+
+        .name-list div {
+            padding: 3px 0;
+        }
+
+        .highlight {
+            text-decoration: underline;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <input type="text" id="nameInput">
+        <button id="addBtn">Add</button>
+        <button id="searchBtn">Search</button>
+        <div class="name-list" id="nameList">
+            <div>John Resig</div>
+            <div>George Martin</div>
+            <div>Malcom John Sinclair</div>
+            <div>J. Ohn</div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#addBtn').click(function () {
+                const name = $('#nameInput').val().trim();
+                if (name !== '') {
+                    $('<div>' + name + '</div>').appendTo('#nameList');
+                    $('#nameInput').val(''); // clear input
+                }
+            });
+
+            $('#searchBtn').click(function () {
+                const keyword = $('#nameInput').val().trim();
+                $('#nameList div').removeClass('highlight'); // reset
+
+                if (keyword !== '') {
+                    $('#nameList div:contains("' + keyword + '")').each(function () {
+                        if ($(this).text().toLowerCase().includes(keyword.toLowerCase())) {
+                            $(this).addClass('highlight');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

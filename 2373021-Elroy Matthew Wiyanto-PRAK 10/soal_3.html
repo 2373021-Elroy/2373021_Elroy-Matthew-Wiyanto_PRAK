@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>2373021 Elroy Matthew Wiyanto</title>
+    <style>
+        .color-box {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            float: left;
+            border: 2px solid blue;
+            background-color: white;
+        }
+
+        #container {
+            overflow: hidden;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    <button id="changeBtn">Change colors</button>
+    <br><br>
+
+    <div id="container">
+        <div class="color-box"></div>
+        <div class="color-box"></div>
+        <div class="color-box"></div>
+        <div class="color-box"></div>
+        <div class="color-box"></div>
+        <div class="color-box"></div>
+        <div class="color-box"></div>
+        <div class="color-box"></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            function setRedBox(box) {
+                $(".color-box").removeAttr("id");
+                $(".color-box").css("background-color", "white");
+                $(box).css("background-color", "red");
+                $(box).attr("id", "merah");
+            }
+
+            function colorUntilRed() {
+                $(".color-box").each(function () {
+                    if ($(this).attr("id") === "merah") {
+                        return false;
+                    }
+
+                    if ($(this).css("background-color") === "rgb(255, 255, 255)") {
+                        $(this).css("background-color", "yellow");
+                    }
+                });
+            }
+
+            $(".color-box").click(function () {
+                setRedBox(this);
+            });
+
+            $("#changeBtn").click(function () {
+                colorUntilRed();
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

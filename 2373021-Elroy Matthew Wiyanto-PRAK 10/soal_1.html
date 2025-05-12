@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>2373021 Elroy Matthew Wiyanto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            padding: 30px;
+        }
+
+        #menu {
+            width: fit-content;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 5px #aaa;
+            padding: 10px;
+        }
+
+        #menu>ol {
+            list-style: none;
+            display: flex;
+            background-color: white;
+        }
+
+        #menu>ol>li {
+            position: relative;
+            background-color: hotpink;
+            padding: 10px 20px;
+            margin-right: 10px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        li>ol {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            list-style: none;
+            background: white;
+            border: 3px solid hotpink;
+            border-top: none;
+            width: 180px;
+            padding: 5px 0;
+            z-index: 10;
+        }
+
+        li>ol>li {
+            padding: 5px 10px;
+            color: black;
+            font-weight: normal;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        li>ol>li:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    <div id="menu">
+        <ol>
+            <li class="item">jQuery
+                <ol>
+                    <li><u>Download</u></li>
+                    <li><u>Documentation</u></li>
+                    <li><u>Blog</u></li>
+                </ol>
+            </li>
+            <li class="item">Community
+                <ol>
+                    <li><u>Mailing List</u></li>
+                    <li><u>Tutorials</u></li>
+                    <li><u>Demos</u></li>
+                    <li><u>Plugins</u></li>
+                </ol>
+            </li>
+            <li class="item">Development
+                <ol>
+                    <li><u>Source Code</u></li>
+                    <li><u>Bug Tracking</u></li>
+                    <li><u>Recent Changes</u></li>
+                </ol>
+            </li>
+        </ol>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("li.item ol").hide();
+
+            $("li.item").hover(
+                function () {
+
+                    $("li.item ol").hide();
+                    $(this).children("ol").show();
+                },
+                function () {
+                    $(this).children("ol").hide();
+                }
+            );
+        });
+    </script>
+
+</body>
+
+</html>

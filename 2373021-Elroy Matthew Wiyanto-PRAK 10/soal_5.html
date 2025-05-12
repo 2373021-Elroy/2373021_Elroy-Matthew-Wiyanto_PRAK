@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>2373021 Elroy Matthew Wiyanto</title>
+    <style>
+        .highlight {
+            color: red;
+            font-weight: bold;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 300px;
+            box-shadow: 2px 2px 10px #aaa;
+        }
+
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+
+        input {
+            margin-bottom: 10px;
+            width: 300px;
+            padding: 6px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    <input type="text" id="search" placeholder="Ketik nama perusahaan...">
+
+    <table>
+        <tbody id="companyList">
+            <tr>
+                <td>Sun Microsystem</td>
+            </tr>
+            <tr>
+                <td>Apache Software Foundation</td>
+            </tr>
+            <tr>
+                <td>Oracle Coorporation</td>
+            </tr>
+            <tr>
+                <td>International Bussiness Machines</td>
+            </tr>
+            <tr>
+                <td>Microsoft Coorporation</td>
+            </tr>
+            <tr>
+                <td>Apple Inc</td>
+            </tr>
+            <tr>
+                <td>Sap Ag</td>
+            </tr>
+            <tr>
+                <td>Accenture</td>
+            </tr>
+            <tr>
+                <td>Computer Sciences Coorporation</td>
+            </tr>
+            <tr>
+                <td>Google</td>
+            </tr>
+            <tr>
+                <td>Softbank</td>
+            </tr>
+            <tr>
+                <td>Yahoo</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            $('#search').on('keyup', function () {
+                var keyword = $(this).val().toLowerCase();
+
+                $('#companyList tr').each(function () {
+                    var cell = $(this).find('td');
+                    var text = cell.text().toLowerCase();
+
+                    if (keyword && text.includes(keyword)) {
+                        cell.addClass('highlight');
+                    } else {
+                        cell.removeClass('highlight');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
