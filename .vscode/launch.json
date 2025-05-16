@@ -1,0 +1,11 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open index.html",
+            "file": "d:\\Elroy\\Semester 4\\2373021_Elroy Matthew Wiyanto_PRAK\\2373021-Elroy Matthew Wiyanto-PRAK 11\\soal_1\\index.html"
+        }
+    ]
+}
